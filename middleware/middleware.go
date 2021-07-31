@@ -17,7 +17,7 @@ import (
 
 // DB connection string for localhost mongoDB
 // e.g. const connectionString = "mongodb://localhost:27017"
-const connectionString = "Connection String"
+const connectionString = "mongodb+srv://test:<password>@go-todo-app.tia8d.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
 // Database Name
 const dbName = "test"
@@ -83,6 +83,7 @@ func DeleteTask(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode(params["id"])
 }
 
+// TaskComplete updates a task's status according to a task id
 func TaskComplete(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Context-Type", "application/x-www-form-urlendcoded")
 	w.Header().Set("Access-Control-Allow-Origin", "*")
@@ -95,6 +96,7 @@ func TaskComplete(w http.ResponseWriter, r *http.Request) {
 }
 
 // repository-layer type functions - data access layer TODO
+
 // task complete method, update task's status to true
 func taskComplete(task string) {
 	fmt.Println(task)
